@@ -1,10 +1,5 @@
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  
-} from "react-router-dom";
+import {BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from './components/Navbar';
 import { Home } from './components/Home';
@@ -18,26 +13,18 @@ function App() {
   return (
     <>
       <NoteState>
-        <Router>
+        <BrowserRouter>
           <Navbar />
           <Alert message="This is amazing React course" />
           <div className="container">
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route exact path="/about">
-                <About />
-              </Route>
-              <Route exact path="/login">
-                <Login />
-              </Route>
-              <Route exact path="/signup">
-                <Signup />
-              </Route>
-            </Switch>
+          <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/about" element={<About />} />
+              <Route exact path="/login" element={<Login />} />
+              <Route exact path="/signup" element={<Signup />} />
+            </Routes>
           </div>
-        </Router>
+        </BrowserRouter>
       </NoteState>
     </>
   );
